@@ -1,4 +1,4 @@
-# Spring Boot Shopping Cart Web App edited by BurlaPriyanka
+# Spring Boot Shopping Cart Web App edited by Burla Priyanka
 
 ## About
 
