@@ -1,4 +1,4 @@
-# Spring Boot Shopping Cart Web Appp
+# Spring Boot Shopping Cart Web App
 
 ## About
 
