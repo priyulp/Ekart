@@ -7,6 +7,18 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.boot.web.servlet.error.ErrorController;
 
+public class CustomErrorController implements ErrorController {
+    @RequestMapping("/error")
+    public String handleError() {
+        return "error"; // your error.html page
+    }
+
+    public String getErrorPath() {
+        return "/error";
+    }
+}
+
+
 
 @RestController
 public class CustomErrorController implements ErrorController {
