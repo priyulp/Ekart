@@ -29,7 +29,20 @@ public class HomeController {
 
     @GetMapping("/home")
     public ModelAndView home(@RequestParam("page") Optional<Integer> page) {
+        int evalPage = (page.orElse(0) < 1) ? INITIAL_PAGE : page.get() - 1;
 
-        // If no page or pag
+        Page<Product> products = productService.findAll(
+                PageRequest.of(evalPage, PAGE_SIZE, Sort.by("name"))
+        );
 
-    
+        Pager pager = new Pager(products.getTotalPages(), products.getNumber(), BUTTONS_TO_SHOW);
+
+        ModelAndView modelAndView = new ModelAndView("home");
+        modelAndView.addObject("products", products);
+        modelAndView.addObject("pager", pager);
+
+        return modelAndView;
+    }
+
+    private static final int BUTTONS_TO_SHOW = 5;
+}
